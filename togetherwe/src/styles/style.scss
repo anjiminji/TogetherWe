@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar {
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    height: 3rem;
+  }
+
+  button {
+    display: block;
+    border: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  button:focus,
+  button:active {
+    outline: none;
+  }
+
+  button:active {
+    transform: scale(1);
+  }
+
+  .toggle {
+    background-color: #585858;
+    min-width: 60px;
+    min-height: 30px;
+    position: relative;
+    border: 2px solid #585858;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color ease-out 250ms;
+  }
+
+  .toggle::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 30px;
+    transition: transform ease-out 250ms;
+  }
+
+  /* Active (dark mode) class for animating transition on toggle button*/
+  .toggle.clicked::after {
+    transform: translateX(100%);
+  }
+
+  .circle, .circle::after {
+    background-color: var(--accent);
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+  }
+  
+  .circle {
+    transform: rotate(-25deg);
+    transition: background-color ease-out 250ms;
+  }
+   
+    .circle::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    background-color: var(--background);
+    transition: transform ease-out 250ms;
+    transition-delay: 20ms;
+  }
+  
+  .circle.clicked::after {
+    transform: translateY(-30%);
+  }
+}
+
+.banner {
+  display: flex;
+  padding: 3.5rem 4.5rem;
+  background: #818be9;
+  background: linear-gradient(170deg, #818be9 40%, #e47fda 100%);
+  border-radius: 1rem;
+  gap: 3rem;
+
+  .left {
+    svg {
+      width: 22rem;
+    }
+  }
+
+  .right {
+    color: white;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.25;
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin: 1rem 0;
+      max-width: 82%;
+    }
+
+    button {
+      color: black;
+      background-color: white;
+      outline: none;
+      padding: 0.8rem 3rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1.15rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.projects {
+  margin-top: 3rem;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    svg {
+      height: 2.5rem;
+    }
+  }
+
+  .spinner-box {
+    .three-quarter-spinner {
+      width: 50px;
+      height: 50px;
+      margin: 3rem auto;
+      border: 3px solid #818be9;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin 0.5s linear 0s infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+  }
+
+  .cards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+
+    .card {
+      padding: 1rem;
+      border-radius: 0.8rem;
+      background-color: white;
+      box-shadow: 0px 2px 48px rgba(23, 23, 23, 0.1);
+      position: relative;
+
+      button {
+        color: white;
+        outline: none;
+        padding: 0.8rem 3rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+        cursor: pointer;
+      }
+
+      .details-card {
+        img {
+          width: 100%;
+          height: 14rem;
+          object-fit: cover;
+          border-radius: 0.8rem;
+        }
+
+        .card-title {
+          font-size: 1.5rem;
+        }
+
+        .progress-bar {
+          margin-block: 0.75rem;
+          height: 5px;
+          width: 100%;
+          background-color: rgb(185, 185, 185);
+          border-radius: 5px;
+
+          .progress {
+            border-radius: 5px;
+          }
+        }
+
+        .amount {
+          font-weight: 500;
+          color: #585858;
+          span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: black;
+          }
+        }
+
+        button {
+          width: 100%;
+          background-color: #818be9;
+        }
+      }
+
+      .donate-card {
+        .close-button {
+          cursor: pointer;
+          position: absolute;
+          right: 1rem;
+
+          svg {
+            height: 2.5rem;
+            width: 2.5rem;
+            background-color: rgb(221, 221, 221);
+            padding: 0.5rem;
+            border-radius: 100%;
+          }
+        }
+
+        h3 {
+          margin-top: 3rem;
+          max-width: 75%;
+        }
+
+        .donations {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-top: 1rem;
+          color: rgb(129, 129, 129);
+
+          span {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+
+            input[radio] {
+              height: 1.5rem;
+            }
+          }
+        }
+
+        button {
+          background-color: #f8c16f;
+        }
+      }
+
+      .sucess-card {
+        h3 {
+          text-align: center;
+          background: -webkit-linear-gradient(290deg, rgba(129, 139, 233, 1) 20%, rgba(228, 127, 218, 1) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        button {
+          background-color: #af93ff;
+        }
+      }
+    }
+  }
+  button {
+    width: max-content;
+    display: block;
+    margin: 1rem auto;
+    color: black;
+    background-color: white;
+    outline: none;
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .banner {
+    flex-direction: column;
+    padding: 3rem;
+    gap: 1.5rem;
+
+    .left {
+      svg {
+        display: block;
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+    .right {
+      text-align: center;
+
+      p {
+        font-size: 0.8rem;
+        margin: 1rem auto;
+        max-width: 100%;
+      }
+    }
+  }
+}
